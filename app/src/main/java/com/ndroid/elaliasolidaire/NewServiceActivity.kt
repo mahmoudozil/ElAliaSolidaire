@@ -58,8 +58,8 @@ class NewServiceActivity : AppCompatActivity() {
         }
 
         btnSave.setOnClickListener {
-            if (servicesContent == "" || editName.text.toString() == "" || editAdresse.text.toString() == "" || editTel.text.toString() == "") {
-                Toast.makeText(this, "يرجو منكم ملء كل الخانات", Toast.LENGTH_LONG).show()
+            if (servicesContent == "" || editName.text.toString().trim() == "" || editAdresse.text.toString().trim() == "" || editTel.text.toString().trim() == "") {
+                Toast.makeText(this, "يرجو منكم ملئ كل الخانات", Toast.LENGTH_LONG).show()
             } else {
                 // Write a message to the database
                 val database = FirebaseDatabase.getInstance().reference.child(android_id).child("services")
