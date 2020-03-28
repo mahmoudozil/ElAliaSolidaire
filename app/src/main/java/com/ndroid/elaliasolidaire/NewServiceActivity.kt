@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.new_services_activity.*
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.logging.Logger
 
 
 class NewServiceActivity : AppCompatActivity() {
@@ -30,6 +31,7 @@ class NewServiceActivity : AppCompatActivity() {
 
         // save the unique device id to sharedPreferences
         val sharedPreferences = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+
         if (sharedPreferences.getString("device_id", "") == "") {
             android_id = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
             val editor =  sharedPreferences.edit()
@@ -38,6 +40,9 @@ class NewServiceActivity : AppCompatActivity() {
         } else {
             android_id = sharedPreferences.getString("device_id", "").toString()
         }
+        editName.setText(sharedPreferences.getString("username", "").toString())
+        editTel.setText(sharedPreferences.getString("tel", "").toString())
+        editAdresse.setText(sharedPreferences.getString("adresse", "").toString())
         print("android_id $android_id")
 
         var servicesContent = ""
@@ -59,8 +64,12 @@ class NewServiceActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             if (servicesContent == "" || editName.text.toString().trim() == "" || editAdresse.text.toString().trim() == "" || editTel.text.toString().trim() == "") {
-                Toast.makeText(this, "يرجو منكم ملئ كل الخانات", Toast.LENGTH_LONG).show()
-            } else {
+                Toast.makeText(this, "يرجى منكم ملئ كل الخانات", Toast.LENGTH_LONG).show()
+            }
+            else if(editTel.text.toString().trim().length != 8) {
+                Toast.makeText(this, "يرجى منكم إدخال رقم هاتف من 8 أرقام", Toast.LENGTH_LONG).show()
+            }
+            else {
                 // Write a message to the database
                 val database = FirebaseDatabase.getInstance().reference.child(android_id).child("services")
                 val newService = database.push()
@@ -74,6 +83,11 @@ class NewServiceActivity : AppCompatActivity() {
                 val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
 
                 newService.child("dateDemande").setValue(dateInString)
+                val editor =  sharedPreferences.edit()
+                editor.putString("username", editName.text.toString())
+                editor.putString("tel", editTel.text.toString())
+                editor.putString("adresse", editAdresse.text.toString())
+                editor.apply()
 
                 finish()
                 startActivity(Intent(this, MyServicesActivity::class.java))
