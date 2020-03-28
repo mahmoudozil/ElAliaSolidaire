@@ -2,12 +2,13 @@ package com.ndroid.elaliasolidaire
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
+import android.text.method.ScrollingMovementMethod
 import android.view.MenuItem
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
@@ -41,6 +42,7 @@ class NewServiceActivity : AppCompatActivity() {
 
         var servicesContent = ""
         btnAddService.setOnClickListener {
+            tvServicesList.setMovementMethod(ScrollingMovementMethod())
             if (editService.text.toString() != "") {
                 val newService = editService.text.trim()
                 servicesContent = if (servicesContent.equals(""))
@@ -48,6 +50,7 @@ class NewServiceActivity : AppCompatActivity() {
                 else
                     "${servicesContent}\n- $newService"
                 tvServicesList.text = servicesContent
+
                 editService.setText("")
                 hideKeyboard()
             } else

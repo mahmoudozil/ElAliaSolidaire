@@ -117,21 +117,22 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardServices"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:padding="4dp"
                 app:cardElevation="2dp">
 
                 <TextView
                     android:id="@+id/tvServicesList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="373dp"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/almarai"
                     android:layoutDirection="rtl"
                     android:lineSpacingExtra="2dp"
                     android:padding="6dp"
                     android:textDirection="rtl"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:scrollbars="vertical"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -140,8 +141,8 @@
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
                 android:layout_below="@id/cardServices"
+                android:layout_marginTop="40dp"
                 android:background="#2196F3"
                 android:fontFamily="@font/almarai_bold"
                 android:text="أرسل الطلب"
