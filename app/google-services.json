@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "447656425969",
+    "firebase_url": "https://jendouba-corona.firebaseio.com",
+    "project_id": "jendouba-corona",
+    "storage_bucket": "jendouba-corona.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447656425969:android:e57b402d7a53544927ec50",
+        "android_client_info": {
+          "package_name": "com.jendouba.corona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IWaJob6e9-GEiPSvM6wdVD0Qmsodu0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447656425969:android:965416672ae84e5627ec50",
+        "android_client_info": {
+          "package_name": "com.jendouba.corona.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IWaJob6e9-GEiPSvM6wdVD0Qmsodu0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
