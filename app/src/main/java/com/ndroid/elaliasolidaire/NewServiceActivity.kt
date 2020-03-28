@@ -43,8 +43,8 @@ class NewServiceActivity : AppCompatActivity() {
         var servicesContent = ""
         btnAddService.setOnClickListener {
             tvServicesList.setMovementMethod(ScrollingMovementMethod())
-            if (editService.text.toString() != "") {
-                val newService = editService.text.trim()
+            if (editService.text.toString().trim() != "") {
+                val newService = editService.text
                 servicesContent = if (servicesContent.equals(""))
                     "- $newService"
                 else
