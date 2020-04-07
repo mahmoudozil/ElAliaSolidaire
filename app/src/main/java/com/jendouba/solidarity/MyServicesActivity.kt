@@ -1,4 +1,4 @@
-package com.jendouba.corona
+package com.jendouba.solidarity
 
 import android.content.Context
 import android.os.Bundle
@@ -40,6 +40,7 @@ class MyServicesActivity : AppCompatActivity() {
                if(!snapshot.hasChild("services")) {
                    progressBar.visibility = View.GONE
                    tvNoService.visibility = View.VISIBLE
+                   notice.visibility = View.GONE
                }
             }
         })
@@ -61,6 +62,7 @@ class MyServicesActivity : AppCompatActivity() {
                 if (dataSnapshot.children.count() == 0) {
                     progressBar.visibility = View.GONE
                     servicesList.visibility = View.GONE
+                    notice.visibility = View.GONE
                     tvNoService.visibility = View.VISIBLE
                 } else {
                     val value = dataSnapshot.getValue(Service::class.java)!!
@@ -68,8 +70,10 @@ class MyServicesActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     tvNoService.visibility = View.GONE
                     servicesList.visibility = View.VISIBLE
+                    notice.visibility = View.VISIBLE
                     servicesData.add(
                         Service(
+                            cin = value.cin,
                             user = value.user,
                             adresse = value.adresse,
                             service = value.service,
@@ -87,11 +91,14 @@ class MyServicesActivity : AppCompatActivity() {
                     if(servicesData[i].databaseKey == dataSnapshot.key)
                         servicesData.removeAt(i)
                 }
-                servicesAdapter.notifyDataSetChanged()
                 if(servicesData.size==0){
                     servicesList.visibility = View.GONE
+                    notice.visibility = View.GONE
                     tvNoService.visibility = View.VISIBLE
+
                 }
+                servicesAdapter.notifyDataSetChanged()
+
             }
         })
 

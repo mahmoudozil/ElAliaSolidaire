@@ -1,7 +1,7 @@
-package com.jendouba.corona
+package com.jendouba.solidarity
 
 class Service() {
-
+    var cin:String = ""
     var user:String = ""
     var adresse:String = ""
     var tel:String = ""
@@ -9,7 +9,8 @@ class Service() {
     var dateDemande:String = ""
     var databaseKey:String = ""
 
-    constructor(user: String, adresse: String, tel: String, service: String, dateDemande: String, databaseKey: String) : this() {
+    constructor(cin:String, user: String, adresse: String, tel: String, service: String, dateDemande: String, databaseKey: String) : this() {
+        this.cin = cin
         this.user = user
         this.adresse = adresse
         this.tel = tel

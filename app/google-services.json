@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "447656425969",
-    "firebase_url": "https://jendouba-corona.firebaseio.com",
-    "project_id": "jendouba-corona",
-    "storage_bucket": "jendouba-corona.appspot.com"
+    "project_number": "678705794149",
+    "firebase_url": "https://jendouba-2a905.firebaseio.com",
+    "project_id": "jendouba-2a905",
+    "storage_bucket": "jendouba-2a905.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:447656425969:android:e57b402d7a53544927ec50",
+        "mobilesdk_app_id": "1:678705794149:android:a85986b22b8fb96d000a8c",
         "android_client_info": {
-          "package_name": "com.jendouba.corona"
+          "package_name": "com.jendouba.admin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+          "client_id": "678705794149-587f6opumntu9d65r4rksftgcummq37l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-IWaJob6e9-GEiPSvM6wdVD0Qmsodu0s"
+          "current_key": "AIzaSyAyirtoIccjIVgiGr78Uh54f_7LXFUBd78"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+              "client_id": "678705794149-587f6opumntu9d65r4rksftgcummq37l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -37,27 +37,27 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:447656425969:android:965416672ae84e5627ec50",
+        "mobilesdk_app_id": "1:678705794149:android:48f743b7d5c145a8000a8c",
         "android_client_info": {
-          "package_name": "com.jendouba.corona.admin"
+          "package_name": "com.jendouba.solidarity"
         }
       },
       "oauth_client": [
         {
-          "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+          "client_id": "678705794149-587f6opumntu9d65r4rksftgcummq37l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-IWaJob6e9-GEiPSvM6wdVD0Qmsodu0s"
+          "current_key": "AIzaSyAyirtoIccjIVgiGr78Uh54f_7LXFUBd78"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "447656425969-n1qhl4njrg4mfir3t1cbv88ekd9e1utv.apps.googleusercontent.com",
+              "client_id": "678705794149-587f6opumntu9d65r4rksftgcummq37l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

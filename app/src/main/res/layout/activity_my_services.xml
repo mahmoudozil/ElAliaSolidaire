@@ -8,11 +8,22 @@
     android:orientation="vertical"
     tools:context=".MyServicesActivity">
 
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_bold"
+        android:text="لا تنسى تعقيم المنتجات عند إستلامها"
+        android:textColor="#2196F3"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/servicesList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
+
 
     <TextView
         android:id="@+id/tvNoService"

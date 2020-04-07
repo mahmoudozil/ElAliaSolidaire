@@ -1,4 +1,4 @@
-package com.jendouba.corona
+package com.jendouba.solidarity
 
 import android.content.Intent
 import android.graphics.Typeface

@@ -1,6 +1,8 @@
-package com.jendouba.corona
+package com.jendouba.solidarity
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -8,26 +10,22 @@ import android.text.method.ScrollingMovementMethod
 import android.view.MenuItem
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.new_services_activity.*
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.logging.Logger
 
 
-class NewServiceActivity : AppCompatActivity() {
+class NewServiceActivity  : AppCompatActivity() {
 
     lateinit var android_id: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_services_activity)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         // save the unique device id to sharedPreferences
         val sharedPreferences = getSharedPreferences("user_data", Context.MODE_PRIVATE)
@@ -40,9 +38,11 @@ class NewServiceActivity : AppCompatActivity() {
         } else {
             android_id = sharedPreferences.getString("device_id", "").toString()
         }
+        editCin.setText(sharedPreferences.getString("cin", "").toString())
         editName.setText(sharedPreferences.getString("username", "").toString())
         editTel.setText(sharedPreferences.getString("tel", "").toString())
         editAdresse.setText(sharedPreferences.getString("adresse", "").toString())
+
         print("android_id $android_id")
 
         var servicesContent = ""
@@ -63,34 +63,41 @@ class NewServiceActivity : AppCompatActivity() {
         }
 
         btnSave.setOnClickListener {
-            if (servicesContent == "" || editName.text.toString().trim() == "" || editAdresse.text.toString().trim() == "" || editTel.text.toString().trim() == "") {
+            if (servicesContent == "" || editCin.text.toString().trim() == "" || editName.text.toString().trim() == "" || editAdresse.text.toString().trim() == "" || editTel.text.toString().trim() == "") {
                 Toast.makeText(this, "يرجى منكم ملئ كل الخانات", Toast.LENGTH_LONG).show()
+            }
+            else if(editCin.text.toString().trim().length != 8) {
+                Toast.makeText(this, "يرجى منكم إدخال رقم بطاقة التعريف الوطنية من 8 أرقام", Toast.LENGTH_LONG).show()
             }
             else if(editTel.text.toString().trim().length != 8) {
                 Toast.makeText(this, "يرجى منكم إدخال رقم هاتف من 8 أرقام", Toast.LENGTH_LONG).show()
             }
             else {
-                // Write a message to the database
-                val database = FirebaseDatabase.getInstance().reference.child(android_id).child("services")
-                val newService = database.push()
-                newService.child("user").setValue(editName.text.toString())
-                newService.child("tel").setValue(editTel.text.toString())
-                newService.child("adresse").setValue(editAdresse.text.toString())
-                newService.child("service").setValue(servicesContent)
-                newService.child("etat").setValue(0)
 
-                val date = getCurrentDateTime()
-                val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
+                    // Write a message to the database
+                    val database = FirebaseDatabase.getInstance().reference.child(android_id).child("services")
+                    val newService = database.push()
+                    newService.child("cin").setValue(editCin.text.toString())
+                    newService.child("user").setValue(editName.text.toString())
+                    newService.child("tel").setValue(editTel.text.toString())
+                    newService.child("adresse").setValue(editAdresse.text.toString())
+                    newService.child("service").setValue(servicesContent)
+                    newService.child("etat").setValue(0)
 
-                newService.child("dateDemande").setValue(dateInString)
-                val editor =  sharedPreferences.edit()
-                editor.putString("username", editName.text.toString())
-                editor.putString("tel", editTel.text.toString())
-                editor.putString("adresse", editAdresse.text.toString())
-                editor.apply()
+                    val date = getCurrentDateTime()
+                    val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
 
-                finish()
-                startActivity(Intent(this, MyServicesActivity::class.java))
+                    newService.child("dateDemande").setValue(dateInString)
+                    val editor =  sharedPreferences.edit()
+                    editor.putString("cin", editCin.text.toString())
+                    editor.putString("username", editName.text.toString())
+                    editor.putString("tel", editTel.text.toString())
+                    editor.putString("adresse", editAdresse.text.toString())
+                    editor.apply()
+
+                    finish()
+                    startActivity(Intent(this, MyServicesActivity::class.java))
+
             }
         }
 
