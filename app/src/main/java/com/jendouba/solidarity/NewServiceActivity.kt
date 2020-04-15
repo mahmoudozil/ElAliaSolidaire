@@ -8,8 +8,12 @@ import android.os.Bundle
 import android.provider.Settings
 import android.text.method.ScrollingMovementMethod
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
@@ -43,7 +47,40 @@ class NewServiceActivity  : AppCompatActivity() {
         editTel.setText(sharedPreferences.getString("tel", "").toString())
         editAdresse.setText(sharedPreferences.getString("adresse", "").toString())
 
-        print("android_id $android_id")
+        val spinner: Spinner = findViewById(R.id.cities)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.cities,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
+        var nb = 0
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                var cityPos = sharedPreferences.getString("cityPos", "0").toString()
+                parent?.setSelection(Integer.valueOf(cityPos))
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                nb += 1
+
+                if(nb > 1) {
+                    val editor =  sharedPreferences.edit()
+                    editor.putString("city", parent?.getItemAtPosition(pos).toString())
+                    editor.putString("cityPos", pos.toString())
+                    editor.apply()
+
+                }
+                var cityPos = sharedPreferences.getString("cityPos", "0").toString()
+                parent?.setSelection(Integer.valueOf(cityPos))
+            }
+        }
 
         var servicesContent = ""
         btnAddService.setOnClickListener {
@@ -83,6 +120,7 @@ class NewServiceActivity  : AppCompatActivity() {
                     newService.child("adresse").setValue(editAdresse.text.toString())
                     newService.child("service").setValue(servicesContent)
                     newService.child("etat").setValue(0)
+                    newService.child("city").setValue(sharedPreferences.getString("city", "جندوبة").toString())
 
                     val date = getCurrentDateTime()
                     val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
@@ -129,4 +167,5 @@ class NewServiceActivity  : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         // }
     }
+
 }

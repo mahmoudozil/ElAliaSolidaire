@@ -27,14 +27,15 @@
                 android:fontFamily="@font/almarai"
                 android:text="رقم بطاقة التعريف الوطنية"
                 android:textColor="#2196F3"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/editCin"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="000000000"
+                android:textSize="15sp"
                 android:inputType="number"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp" />
@@ -47,14 +48,16 @@
                 android:fontFamily="@font/almarai"
                 android:text="إسم المواطن"
                 android:textColor="#2196F3"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/editName"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="الإسم واللقب"
+                android:textSize="15sp"
+
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp" />
 
@@ -67,15 +70,16 @@
                 android:text="رقم الهاتف"
 
                 android:textColor="#2196F3"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/editTel"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="99999999"
                 android:inputType="number"
+                android:textSize="15sp"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp" />
 
@@ -87,14 +91,15 @@
                 android:fontFamily="@font/almarai"
                 android:text="العنوان"
                 android:textColor="#2196F3"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/editAdresse"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="رقم المنزل ، النهج أو الشارع ، الحي ، المدينة"
+                android:textSize="15sp"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp" />
 
@@ -104,9 +109,27 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="14dp"
                 android:fontFamily="@font/almarai"
+                android:text="المعتمدية"
+                android:textColor="#2196F3"
+                android:textSize="15sp" />
+            <Spinner
+                android:id="@+id/cities"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/spinner_background"
+                android:textSize="15sp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/almarai"
                 android:text="الطلبات"
                 android:textColor="#2196F3"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -115,18 +138,20 @@
                 <EditText
                     android:id="@+id/editService"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_marginBottom="14dp"
                     android:layout_toRightOf="@id/btnAddService"
                     android:background="@drawable/edit_text_border"
                     android:hint="مثال : كيلو بطاطا"
+                    android:textSize="15sp"
+
                     android:paddingLeft="6dp"
                     android:paddingRight="6dp" />
 
                 <Button
                     android:id="@+id/btnAddService"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginRight="10dp"
                     android:background="#2196F3"
@@ -138,21 +163,21 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardServices"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:padding="4dp"
                 app:cardElevation="2dp">
 
                 <TextView
                     android:id="@+id/tvServicesList"
-                    android:layout_width="373dp"
+                    android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/almarai"
                     android:layoutDirection="rtl"
                     android:lineSpacingExtra="2dp"
                     android:padding="6dp"
-                    android:hint="إضغط على + في كل مرة لإضافة طلب جديد"
+                    android:hint="إضغط على علامة + في كل مرة لإضافة طلب جديد إلى القائمة"
                     android:textDirection="rtl"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:scrollbars="vertical"/>
 
@@ -164,12 +189,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cardServices"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:background="#2196F3"
                 android:fontFamily="@font/almarai_bold"
                 android:text="أرسل الطلب"
                 android:textColor="#fff"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>
 

@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:678705794149:android:a85986b22b8fb96d000a8c",
+        "mobilesdk_app_id": "1:678705794149:android:48f743b7d5c145a8000a8c",
         "android_client_info": {
-          "package_name": "com.jendouba.admin"
+          "package_name": "com.jendouba.solidarity"
         }
       },
       "oauth_client": [
@@ -37,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:678705794149:android:48f743b7d5c145a8000a8c",
+        "mobilesdk_app_id": "1:678705794149:android:caae0d62b6a78e43000a8c",
         "android_client_info": {
-          "package_name": "com.jendouba.solidarity"
+          "package_name": "com.jendouba.volunteer"
         }
       },
       "oauth_client": [

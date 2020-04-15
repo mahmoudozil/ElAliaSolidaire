@@ -76,6 +76,7 @@ class MyServicesActivity : AppCompatActivity() {
                             cin = value.cin,
                             user = value.user,
                             adresse = value.adresse,
+                            city = value.city,
                             service = value.service,
                             tel = value.tel,
                             dateDemande = value.dateDemande,
